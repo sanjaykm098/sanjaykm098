@@ -1,8 +1,9 @@
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
-import { File, Github, Linkedin } from "lucide-react";
+import { File } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -18,28 +19,24 @@ const HeroSection = () => {
   const { isLoading } = usePreloader();
 
   return (
-    <section id="hero" className={cn("relative w-full h-screen")}>
-      <div className="grid md:grid-cols-2">
+    <section id="hero" className={cn("relative w-full min-h-[90dvh] flex items-center justify-center overflow-hidden")}>
+      <div className="container mx-auto px-4 z-10 text-center">
         <div
           className={cn(
-            "h-[calc(100dvh-3rem)] md:h-[calc(100dvh-4rem)] z-[2]",
-            "col-span-1",
-            "flex flex-col justify-start md:justify-center items-center md:items-start",
-            "pt-28 sm:pt-0 sm:pb-32 md:p-24 lg:p-40 xl:p-48"
+            "flex flex-col justify-center items-center py-20 md:py-32"
           )}
         >
           {!isLoading && (
             <>
-              <div className="">
+              <div className="flex flex-col items-center">
                 <BlurIn delay={0.7}>
                   <p
                     className={cn(
-                      "md:self-start mt-4 font-thin text-md text-slate-500 dark:text-zinc-400 ml-3",
-                      "cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
+                      "font-medium text-lg text-orange-500 mb-4",
+                      "cursor-default uppercase tracking-[0.3em]"
                     )}
                   >
                     Hi, I am
-                    <br className="md:hidden" />
                   </p>
                 </BlurIn>
                 <BlurIn delay={1}>
@@ -47,84 +44,80 @@ const HeroSection = () => {
                     <TooltipTrigger asChild>
                       <h1
                         className={cn(
-                          "font-thin text-6xl text-transparent text-slate-800 ml-1 text-left",
-                          "cursor-default text-edge-outline font-display sm:text-7xl md:text-9xl "
+                          "font-black text-6xl md:text-9xl leading-[0.9] tracking-tighter text-transparent bg-clip-text pb-2",
+                          "bg-gradient-to-b from-slate-900 to-slate-700 dark:from-white dark:to-zinc-500",
+                          "cursor-default mb-6"
                         )}
                       >
                         {config.author.split(" ")[0]}
-                        <br className="md:block hiidden" />
+                        <br />
                         {config.author.split(" ")[1]}
-                        {/* PLEASE hello??
-
-                        <br className="md:block hiidden" />
-                        UNMUTE ME 😢😢 */}
                       </h1>
                     </TooltipTrigger>
                     <TooltipContent
                       side="top"
                       className="dark:bg-white dark:text-black"
                     >
-                      theres something waiting for you in devtools
+                      Nice to meet you!
                     </TooltipContent>
                   </Tooltip>
                 </BlurIn>
-                {/* <div className="md:block hidden bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0 w-screen h-px animate-fade-right animate-glow" /> */}
                 <BlurIn delay={1.2}>
-                  <p
-                    className={cn(
-                      "md:self-start md:mt-4 font-thin text-md text-slate-500 dark:text-zinc-400 ml-3",
-                      "cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
-                    )}
-                  >
-                    AI Enthusiast
-                  </p>
+                  <div className="flex items-center gap-4">
+                    <p
+                      className={cn(
+                        "font-semibold text-xl md:text-2xl text-slate-600 dark:text-zinc-400",
+                        "cursor-default tracking-tight"
+                      )}
+                    >
+                      Laravel & Full Stack Developer
+                    </p>
+                  </div>
                 </BlurIn>
               </div>
-              <div className="mt-8 md:ml-2 flex flex-col gap-3">
+              <div className="mt-8 flex flex-col items-center gap-6 w-full max-w-sm">
                 <Link
-                  href={
-                    "https://drive.google.com/file/d/1vjtWfqYGMIMK_rlBnmDEpKco9MiEaQss/view"
-                  }
+                  href={"/assets/resume.pdf"}
                   target="_blank"
-                  className="flex-1"
+                  className="w-full"
                 >
                   <BoxReveal delay={2} width="100%" >
-                    <Button className="flex items-center gap-2 w-full">
-                      <File size={24} />
-                      <p>Resume</p>
+                    <Button className="flex items-center gap-2 w-full h-12 text-lg rounded-full">
+                      <File size={20} />
+                      <p>View Resume</p>
                     </Button>
                   </BoxReveal>
                 </Link>
-                <div className="md:self-start flex gap-3">
+                <div className="flex gap-4">
                   <Tooltip delayDuration={300}>
                     <TooltipTrigger asChild>
                       <Link href={"#contact"}>
                         <Button
                           variant={"outline"}
-                          className="block w-full overflow-hidden"
+                          className="h-12 px-8 rounded-full text-md border-orange-500/50 hover:bg-orange-500/10"
                         >
                           Hire Me
                         </Button>
                       </Link>
                     </TooltipTrigger>
                     <TooltipContent side="bottom">
-                      <p>pls 🥹 🙏</p>
+                      <p>Let&apos;s build something! 🚀</p>
                     </TooltipContent>
                   </Tooltip>
                   <Link
                     href={config.social.github}
                     target="_blank"
                   >
-                    <Button variant={"outline"}>
-                      <SiGithub size={24} />
+                    <Button variant={"outline"} size="icon" className="h-12 w-12 rounded-full border-zinc-500/30 hover:border-orange-500">
+                      <SiGithub size={20} />
                     </Button>
                   </Link>
                   <Link
                     href={config.social.linkedin}
                     target="_blank"
                   >
-                    <Button variant={"outline"}>
-                      <SiLinkedin size={24} />
+                    <Button variant={"outline"} size="icon" className="h-12 w-12 rounded-full border-zinc-500/30 hover:border-orange-500">
+                      <SiLinkedin size={20} />
                     </Button>
                   </Link>
                 </div>
@@ -132,7 +125,6 @@ const HeroSection = () => {
             </>
           )}
         </div>
-        <div className="grid col-span-1"></div>
       </div>
       <div className="absolute bottom-10 left-[50%] translate-x-[-50%]">
         <ScrollDownIcon />

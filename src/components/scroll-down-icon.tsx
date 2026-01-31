@@ -19,23 +19,29 @@ const ScrollDownIcon = () => {
     <AnimatePresence>
       {show && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-          className="w-fit min-h-[50px] p-1 border-2 rounded-full border-gray-500 dark:border-white "
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center gap-2 group cursor-pointer"
+          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
         >
-          <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: [0, 25], opacity: [1, 0] }}
-            transition={{
-              duration: 1,
-              ease: "easeOut",
-              repeat: Infinity,
-              repeatDelay: 1,
-            }}
-            className="w-3 h-3 rounded-full bg-gray-500 dark:bg-white"
-          />
+          <span className="text-[10px] uppercase tracking-[0.3em] text-neutral-500 font-bold group-hover:text-orange-500 transition-colors">
+            Scroll
+          </span>
+          <div className="w-[1px] h-12 bg-gradient-to-b from-orange-500 to-transparent relative overflow-hidden">
+            <motion.div
+              animate={{
+                y: [-48, 48]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="absolute top-0 left-0 w-full h-1/2 bg-white"
+            />
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

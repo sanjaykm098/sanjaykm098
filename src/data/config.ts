@@ -1,48 +1,38 @@
 const config = {
-  title: "Abhijit Zende | AI Enthusiast",
+  title: "Sanjay Kumar | Laravel & Full Stack Developer",
   description: {
-    long: "Explore the portfolio of Abhijit, a Computer Science Engineer with 1.5 year experience in Devlopment, DevOps & Database management with hands-on experience in deploying & automating workflows, & collaborating with foreign clients. Strong analytical skills, effective communication, and a team-oriented approach to driving process improvements and delivering results.",
+    long: "I'm Sanjay Kumar, a PHP/Laravel & Node.js Developer passionate about crafting seamless digital experiences. My journey involves building School ERP systems, e-commerce platforms, payroll applications, and robust mobile app APIs. I specialize in turning complex requirements into elegant, scalable solutions.",
     short:
-      "Discover the portfolio of Abhijit, a AI enthusiast solving real life problems in DevOps and Development.",
+      "Sanjay Kumar, a Laravel & Full Stack Developer building scalable web solutions and APIs.",
   },
   keywords: [
-    "Abhijit",
-    "Abhijit Zende",
-    "abhijitzende",
-    "abhijitzende.com",
-    "Abhijit Zende portfolio",
-    "portfolio",
-    "DevOps",
-    "Devlopment",
-    "Database",
-    "AI Docker file optimizer",
-    "Finance me",
-    "creative technologist",
-    "web development",
-    "interactive websites",
-    // "GSAP",
-    // "React",
-    // "Next.js",
-    // "Spline",
-    // "Framer Motion",
-    "AWS",
-    "DevSecOps",
-    "AIOps",
-    "Azure",
+    "Sanjay Kumar",
+    "Sanjay",
+    "sanjaykm098",
+    "Laravel Developer",
+    "PHP Developer",
+    "Full Stack Developer",
+    "Node.js",
+    "Nest.js",
+    "School ERP",
+    "E-commerce development",
+    "API Development",
+    "Web Development",
+    "Ludhiana Developer",
   ],
-  author: "Abhijit Zende",
-  email: "abhijitzende75@gmail.com",
-  site: "https://abhijitzende.com",
+  author: "Sanjay Kumar",
+  email: "sanjaykm.live@gmail.com",
+  site: "https://sanjaykm.in",
 
   get ogImg() {
     return this.site + "/assets/seo/og-image.png";
   },
   social: {
-    twitter: "https://x.com/_Abhi_Speaks/",
-    linkedin: "https://www.linkedin.com/in/zende-abhijit/",
-    instagram: "https://www.instagram.com/_.celestial_abhi._/",
-    facebook: "https://www.facebook.com/profile.php?id=100010029821759",
-    github: "https://github.com/Abhiz2411/",
+    twitter: "https://x.com/sanjaykm098", // Placeholder or from profile if found
+    linkedin: "https://www.linkedin.com/in/sanjaykm098",
+    instagram: "https://www.instagram.com/sanjaykm098", // Placeholder
+    // facebook: "https://www.facebook.com/sanjaykm098", // Placeholder
+    github: "https://github.com/sanjaykm098",
   },
 };
 export { config };

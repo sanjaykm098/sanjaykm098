@@ -11,38 +11,55 @@ import Footer from "@/components/footer/footer";
 import Script from "next/script";
 import Preloader from "@/components/preloader";
 import EasterEggs from "@/components/easter-eggs";
+import SmoothScroll from "@/components/smooth-scroll";
 import { config } from "@/data/config";
-import SocketContextProvider from "@/contexts/socketio";
-import RemoteCursors from "@/components/realtime/remote-cursors";
+
 
 export const metadata: Metadata = {
-  title: config.title,
+  metadataBase: new URL(config.site),
+  title: {
+    default: config.title,
+    template: `%s | ${config.author}`,
+  },
   description: config.description.long,
   keywords: config.keywords,
   authors: [{ name: config.author }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: config.title,
     description: config.description.short,
     url: config.site,
+    siteName: config.title,
     images: [
       {
-        url: config.ogImg,
-        width: 800,
-        height: 600,
-        alt: "Portfolio preview",
+        url: "/assets/seo/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: config.title,
       },
     ],
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: config.title,
     description: config.description.short,
-    images: [config.ogImg],
+    images: ["/assets/seo/og-image.png"],
+    creator: "@sanjaykm098",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -77,14 +94,13 @@ export default function RootLayout({
             quantity={100}
           />
           <Preloader>
-            <SocketContextProvider>
-              <RemoteCursors />
+            <SmoothScroll>
               <TooltipProvider>
                 <Header />
                 {children}
                 <Footer />
               </TooltipProvider>
-            </SocketContextProvider>
+            </SmoothScroll>
             <Toaster />
             <EasterEggs />
             <ElasticCursor />

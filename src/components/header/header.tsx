@@ -2,93 +2,84 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import styles from "./style.module.scss";
-import { opacity, background } from "./anim";
-import Nav from "./nav";
 import { cn } from "@/lib/utils";
 import FunnyThemeToggle from "../theme/funny-theme-toggle";
 import { Button } from "../ui/button";
 import { config } from "@/data/config";
-import OnlineUsers from "../realtime/online-users";
+
 
 interface HeaderProps {
   loader?: boolean;
 }
 
 const Header = ({ loader }: HeaderProps) => {
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <motion.header
-      className={cn(
-        styles.header,
-        "transition-colors delay-100 duration-500 ease-in"
-      )}
-      style={{
-        background: isActive ? "hsl(var(--background) / .8)" : "transparent",
-        // backgroundImage:
-        //   "linear-gradient(0deg, rgba(0, 0, 0, 0), rgb(0, 0, 0))",
-      }}
-      initial={{
-        y: -80,
-      }}
-      animate={{
-        y: 0,
-      }}
+      className="fixed top-0 left-0 w-full z-[100] transition-colors delay-100 duration-500 ease-in backdrop-blur-md bg-background/20 border-b border-white/10"
+      initial={{ y: -80 }}
+      animate={{ y: 0 }}
       transition={{
-        delay: loader ? 3.5 : 0, // 3.5 for loading, .5 can be added for delay
+        delay: loader ? 3.5 : 0,
         duration: 0.8,
       }}
     >
-      {/* <div
-        className="absolute inset-0 "
-        style={{
-          mask: "linear-gradient(rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 12.5%)",
-        }}
-      >
-      </div> */}
-      <div className={cn(styles.bar, "flex items-center justify-between")}>
-        <Link href="/" className="flex items-center justify-center">
-          <Button variant={"link"} className="text-md">
-            {config.author}
-          </Button>
-        </Link>
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="flex items-center gap-8">
+          <Link href="/" className="z-10">
+            <Button variant="link" className="text-lg font-black p-0 no-underline hover:no-underline text-foreground">
+              {config.author}
+            </Button>
+          </Link>
 
-        <OnlineUsers />
-        <FunnyThemeToggle className="w-6 h-6 mr-4" />
-        <Button
-          variant={"ghost"}
-          onClick={() => setIsActive(!isActive)}
-          className={cn(
-            styles.el,
-            "m-0 p-0 h-6 bg-transparent flex items-center justify-center"
-          )}
-        >
-          <div className="relative flex items-center">
-            <motion.p
-              variants={opacity}
-              animate={!isActive ? "open" : "closed"}
+          <nav className="hidden md:flex items-center gap-8">
+            <Link href="/" className="text-sm font-medium transition-colors hover:text-orange-500">Home</Link>
+            <Link href="/about" className="text-sm font-medium transition-colors hover:text-orange-500">About</Link>
+            <Link href="/#projects" className="text-sm font-medium transition-colors hover:text-orange-500">Projects</Link>
+            <Link href="/#contact" className="text-sm font-medium transition-colors hover:text-orange-500">Contact</Link>
+          </nav>
+        </div>
+
+        <div className="flex items-center gap-4">
+          <FunnyThemeToggle className="w-5 h-5" />
+
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-foreground"
             >
-              Menu
-            </motion.p>
-            <motion.p variants={opacity} animate={isActive ? "open" : "closed"}>
-              Close
-            </motion.p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </Button>
           </div>
-          <div
-            className={`${styles.burger} ${
-              isActive ? styles.burgerActive : ""
-            }`}
-          ></div>
-        </Button>
+
+          <Link href="/#contact" className="hidden sm:block">
+            <Button size="sm" className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-6">
+              Let&apos;s Talk
+            </Button>
+          </Link>
+        </div>
       </div>
-      <motion.div
-        variants={background}
-        initial="initial"
-        animate={isActive ? "open" : "closed"}
-        className={styles.background}
-      ></motion.div>
-      <AnimatePresence mode="wait">
-        {isActive && <Nav setIsActive={setIsActive} />}
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden overflow-hidden bg-background/95 border-b border-white/10"
+          >
+            <div className="flex flex-col p-4 gap-4">
+              <Link href="/" onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-orange-500 transition-colors px-2">Home</Link>
+              <Link href="/about" onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-orange-500 transition-colors px-2">About</Link>
+              <Link href="/#projects" onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-orange-500 transition-colors px-2">Projects</Link>
+              <Link href="/#contact" onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-orange-500 transition-colors px-2">Contact</Link>
+            </div>
+          </motion.div>
+        )}
       </AnimatePresence>
     </motion.header>
   );

@@ -1,46 +1,32 @@
-// thoda zada ts ho gya idhar
 export enum SkillNames {
-  AWS = "aws",
-  // AZURE = "azure",    // +
-  LINUX = "linux",    
-  // SHELL = "shell",    // +
-  // PYTHON = "python",  // +
-  GIT = "git",
-  DOCKER = "docker",
-  // SELENIUM = "selenium",  // +
-  // JENKINS = "jenkins",    // +
-  // KUBERNETES = "kubernetes",  // +
-  // ANSIBLE = "ansible",    // +
-  // TERRAFORM = "terraform",  // +
-  // PROMETHEUS = "prometheus",  // +
-  // GRAFANA = "grafana",    // +
-  // SONARQUBE = "sonarqube",  // +
-  // OWASP = "owasp",    // +
-  // TRIVY = "trivy",    // +
-  // MAVEN = "maven",    // +
-  // GO = "go",        // +
+  PHP = "php",
+  LARAVEL = "laravel",
+  NODEJS = "nodejs",
+  NESTJS = "nestjs",
+  JS = "js",
+  TS = "ts",
+  JQUERY = "jquery",
+  SQL = "sql",
+  POSTGRES = "postgres",
+  MONGODB = "mongodb",
+  WORDPRESS = "wordpress",
   HTML = "html",
   CSS = "css",
-  JS = "js",
-  // JAVA = "java",    // +
-  POSTGRES = "postgres",
-  TS = "ts",         //
-  REACT = "react",   //
-  VUE = "vue",       //
-  NEXTJS = "nextjs", //
-  TAILWIND = "tailwind",  //
-  NODEJS = "nodejs",  //
-  EXPRESS = "express",  // 
-  MONGODB = "mongodb",  //
-  GITHUB = "github",   //
-  PRETTIER = "prettier",  //
-  NPM = "npm",       //
-  FIREBASE = "firebase",  //
-  WORDPRESS = "wordpress",  //
-  NGINX = "nginx",      //
-  VIM = "vim",           //
-  VERCEL = "vercel",    //
+  TAILWIND = "tailwind",
+  GIT = "git",
+  GITHUB = "github",
+  CPANEL = "cpanel",
+  // Spline Aliases
+  AWS = "aws",
+  PYTHON = "python",
+  REACT = "react",
+  EXPRESS = "express",
+  NEXT = "next",
+  VUE = "vue",
+  AZURE = "azure",
+  LINUX = "linux",
 }
+
 export type Skill = {
   id: number;
   name: string;
@@ -49,205 +35,193 @@ export type Skill = {
   color: string;
   icon: string;
 };
-export const SKILLS: Record<SkillNames, Skill> = {
-  [SkillNames.JS]: {
+
+export const SKILLS: Record<string, Skill> = {
+  [SkillNames.PHP]: {
     id: 1,
+    name: "php",
+    label: "PHP",
+    shortDescription: "The backbone of the web, still powering the world! 🐘🔥",
+    color: "#777bb4",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+  },
+  [SkillNames.LARAVEL]: {
+    id: 2,
+    name: "laravel",
+    label: "Laravel",
+    shortDescription: "The PHP framework for Web Artisans. Drip too hard! 🎨🚀",
+    color: "#ff2d20",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+  },
+  [SkillNames.NODEJS]: {
+    id: 3,
+    name: "nodejs",
+    label: "Node.js",
+    shortDescription: "JavaScript on the server? Deadass moving fast! 🔙🔚",
+    color: "#6cc24a",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  },
+  [SkillNames.NESTJS]: {
+    id: 4,
+    name: "nestjs",
+    label: "NestJS",
+    shortDescription: "Scalable Node.js apps with wings. Purr! 🦅💅",
+    color: "#e0234e",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg",
+  },
+  [SkillNames.JS]: {
+    id: 5,
     name: "js",
     label: "JavaScript",
-    shortDescription: "yeeting code into the DOM since '95, no cap! 💯🚀",
+    shortDescription: "Yeeting code into the DOM since '95, no cap! 💯🚀",
     color: "#f0db4f",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   },
   [SkillNames.TS]: {
-    id: 2,
+    id: 6,
     name: "ts",
     label: "TypeScript",
-    shortDescription:
-      "JavaScript's overachieving cousin who's always flexing 💯🔒",
+    shortDescription: "JavaScript's overachieving cousin flexing hard 💯🔒",
     color: "#007acc",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
   },
-  [SkillNames.HTML]: {
-    id: 3,
-    name: "html",
-    label: "HTML",
-    shortDescription: "the internet's granddad,  still bussin' fr fr! 💀🔥",
-    color: "#e34c26",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-  },
-  [SkillNames.CSS]: {
-    id: 4,
-    name: "css",
-    label: "CSS",
-    shortDescription: "styling with the ultimate drip, no cap 💁‍♂️🔥",
-    color: "#563d7c",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-  },
-  [SkillNames.REACT]: {
-    id: 5,
-    name: "react",
-    label: "React",
-    shortDescription: `"use using" 
-using use = useUsing("use")`,
-    color: "#61dafb",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  },
-  [SkillNames.VUE]: {
-    id: 6,
-    name: "vue",
-    label: "Vue",
-    shortDescription:
-      "the chill pill for your frontend, it hits different! 🟢😌",
-    color: "#41b883",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
-  },
-  [SkillNames.NEXTJS]: {
+  [SkillNames.JQUERY]: {
     id: 7,
-    name: "nextjs",
-    label: "Next.js",
-    shortDescription:
-      "the drama queen of front-end frameworks, and we stan! 👑📜",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    name: "jquery",
+    label: "jQuery",
+    shortDescription: "Write less, do more. The OG helper! 🪄✨",
+    color: "#0769ad",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg",
   },
-  [SkillNames.TAILWIND]: {
+  [SkillNames.SQL]: {
     id: 8,
-    name: "tailwind",
-    label: "Tailwind",
-    shortDescription: "utility classes hitting different fr fr 🌪️🔥",
-    color: "#38bdf8",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
-  },
-  [SkillNames.NODEJS]: {
-    id: 9,
-    name: "nodejs",
-    label: "Node.js",
-    shortDescription: "JavaScript said 'sike, I'm backend now', deadass! 🔙🔚",
-    color: "#6cc24a",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  },
-  [SkillNames.EXPRESS]: {
-    id: 10,
-    name: "express",
-    label: "Express",
-    shortDescription: "middlewares go dummy hard, no cap! 🚂💨",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+    name: "sql",
+    label: "SQL",
+    shortDescription: "Talking to databases like a boss. Respectfully! 📊💪",
+    color: "#336791",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
   },
   [SkillNames.POSTGRES]: {
-    id: 11,
+    id: 9,
     name: "postgres",
     label: "PostgreSQL",
-    shortDescription: "SQL but make it fashion, purr 💅🐘",
+    shortDescription: "The world's most advanced open source database. Fashion! 🐘💅",
     color: "#336791",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
   },
   [SkillNames.MONGODB]: {
-    id: 12,
+    id: 10,
     name: "mongodb",
     label: "MongoDB",
-    shortDescription: "flexin' with that NoSQL drip, respectfully! 💪🍃",
-    color: "#336791",
+    shortDescription: "NoSQL drip, keeping it flexible! 🍃💎",
+    color: "#47a248",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
   },
-  [SkillNames.GIT]: {
+  [SkillNames.WORDPRESS]: {
+    id: 11,
+    name: "wordpress",
+    label: "WordPress",
+    shortDescription: "The grandpa of CMS, still rocking that cane 🧓👴",
+    color: "#21759b",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
+  },
+  [SkillNames.HTML]: {
+    id: 12,
+    name: "html",
+    label: "HTML",
+    shortDescription: "The internet's granddad, still bussin' fr fr! 💀🔥",
+    color: "#e34c26",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  },
+  [SkillNames.CSS]: {
     id: 13,
+    name: "css",
+    label: "CSS",
+    shortDescription: "Styling with the ultimate drip, no cap 💁‍♂️🔥",
+    color: "#1572b6",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+  },
+  [SkillNames.TAILWIND]: {
+    id: 14,
+    name: "tailwind",
+    label: "Tailwind",
+    shortDescription: "Utility classes hitting different fr fr 🌪️🔥",
+    color: "#38bdf8",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+  },
+  [SkillNames.GIT]: {
+    id: 15,
     name: "git",
     label: "Git",
-    shortDescription: "the code's personal bodyguard, no cap! 🕵️‍♂️🔄",
+    shortDescription: "The code's personal bodyguard, no cap! 🕵️‍♂️🔄",
     color: "#f1502f",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
   },
   [SkillNames.GITHUB]: {
-    id: 14,
+    id: 16,
     name: "github",
     label: "GitHub",
-    shortDescription: "sliding into those pull requests, IYKYK! 🐙",
-    color: "#000000",
+    shortDescription: "Sliding into those pull requests, IYKYK! 🐙",
+    color: "#181717",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
   },
-  [SkillNames.PRETTIER]: {
-    id: 15,
-    name: "prettier",
-    label: "Prettier",
-    shortDescription: "making your code not a whole mess, thank u next 🧹✨",
-    color: "#f7b93a",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prettier/prettier-original.svg",
-  },
-  [SkillNames.NPM]: {
-    id: 16,
-    name: "npm",
-    label: "NPM",
-    shortDescription: "package manager said 'I gotchu fam', period! 📦💯",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg",
-  },
-  [SkillNames.FIREBASE]: {
-    id: 17,
-    name: "firebase",
-    label: "Firebase",
-    shortDescription:
-      "your app's ultimate wingman, but watch out, vendor lock-in vibes! 🔥👌",
-    color: "#ffca28",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-  },
-  [SkillNames.WORDPRESS]: {
+  [SkillNames.CPANEL]: {
     id: 18,
-    name: "wordpress",
-    label: "WordPress",
-    shortDescription: "the grandpa of CMS, still rocking that cane 🧓👴",
-    color: "#007acc",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
+    name: "cpanel",
+    label: "cPanel",
+    shortDescription: "Managing servers like a pro, no cap! 🖥️🛠️",
+    color: "#ff6c2c",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cpanel/cpanel-original.svg",
   },
-  [SkillNames.LINUX]: {
-    id: 19,
-    name: "linux",
-    label: "Linux",
-    shortDescription: "where 'chmod 777' is the ultimate flex 🔓🙌",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
-  },
-  [SkillNames.DOCKER]: {
-    id: 20,
-    name: "docker",
-    label: "Docker",
-    shortDescription: "The best containerization! 🐳🔥",
-    color: "#2496ed",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-  },
-  [SkillNames.NGINX]: {
-    id: 21,
-    name: "nginx",
-    label: "NginX",
-    shortDescription: "reverse proxy go zoom zoom, sheesh! 🚗💨",
-    color: "#008000",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
-  },
+
+  // Spline Mappings
   [SkillNames.AWS]: {
-    id: 22,
+    id: 20,
     name: "aws",
-    label: "AWS",
-    shortDescription:
-      "always extra, making everything more complicated, period! 🌐👨‍💻",
+    label: "PHP & Server Management",
+    shortDescription: "Handling servers and PHP deployments since day one. 🐘🚀",
     color: "#ff9900",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
   },
-  [SkillNames.VIM]: {
+  [SkillNames.PYTHON]: {
+    id: 21,
+    name: "python",
+    label: "Backend Mastery",
+    shortDescription: "Versatile backend logic and API architecture. 🐍💻",
+    color: "#3776ab",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+  },
+  [SkillNames.REACT]: {
+    id: 22,
+    name: "react",
+    label: "Full Stack Development",
+    shortDescription: "Building dynamic user interfaces and scalable apps. ⚛️🎨",
+    color: "#61dafb",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  },
+  [SkillNames.EXPRESS]: {
     id: 23,
-    name: "vim",
-    label: "Vim",
-    shortDescription: "exit? In this economy? Ight, imma head out! 🚪🏃",
-    color: "#e34c26",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg",
+    name: "express",
+    label: "Node & NestJS",
+    shortDescription: "High-performance Node.js backends and REST APIs. 🚀🌐",
+    color: "#000000",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg",
   },
-  [SkillNames.VERCEL]: {
+  [SkillNames.NEXT]: {
     id: 24,
-    name: "vercel",
-    label: "Vercel",
-    shortDescription:
-      "The triangle compony, helps you deploy and go touch grass! 🚀🌿",
-    color: "#6cc24a",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+    name: "next",
+    label: "Next.js & Modern Web",
+    shortDescription: "Server-side rendering and static site excellence. ⚡🏗️",
+    color: "#000000",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  },
+  [SkillNames.VUE]: {
+    id: 25,
+    name: "vue",
+    label: "Inertia.js & Vue",
+    shortDescription: "Crafting beautiful frontends for Laravel apps. 🖖✨",
+    color: "#42b883",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
   },
 };
 

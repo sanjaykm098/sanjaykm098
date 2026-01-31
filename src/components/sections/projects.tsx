@@ -34,6 +34,17 @@ const ProjectsSection = () => {
           <Modall key={project.src} project={project} />
         ))}
       </div>
+      <div className="flex justify-center mt-20">
+        <Link href="#contact">
+          <button className={cn(
+            "group relative px-8 py-4 bg-orange-500 text-white font-bold rounded-full overflow-hidden",
+            "transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl hover:shadow-orange-500/50"
+          )}>
+            Contact for more portfolio showcase
+            <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+          </button>
+        </Link>
+      </div>
     </section>
   );
 };

@@ -33,36 +33,26 @@ import {
   SiVercel,
   SiVisualstudiocode,
 } from "react-icons/si";
-import { VscCode } from "react-icons/vsc";
-
-// @ts-ignore
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
 import { TbTerminal2 } from "react-icons/tb";
+import { config } from "@/data/config";
 
 const CONTACT_LINKS = [
   {
     name: "Email",
-    content: "abhijitzende75@gmail",
-    href: "mailto:abhijitzende75@gmail.com",
+    content: config.email,
+    href: `mailto:${config.email}`,
     icon: <FaEnvelope height={"50px"} />,
   },
   {
-    name: "Phone",
-    content: "1234567890",
-    href: "tel:8308509180",
-    icon: <FaPhone height={"50px"} />,
-  },
-  {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/zende-abhijit/",
-    content: "/zende-abhijit",
+    href: config.social.linkedin,
+    content: "/sanjaykm098",
     icon: <FaLinkedin height={"50px"} />,
   },
   {
     name: "GitHub",
-    href: "https://github.com/Abhiz2411",
-    content: "/naresh-khatri",
+    href: config.social.github,
+    content: "/sanjaykm098",
     icon: <FaGithub height={"50px"} />,
   },
 ];
@@ -160,8 +150,8 @@ const TOOLS = [
   },
   {
     name: "GitHub",
-    content: "Next.js is a React framework for production",
-    icon: <FaGithub size={"50px"} color="#fff" />,
+    content: "Building and contributing to open-source projects.",
+    icon: <FaGithub size={"50px"} className="text-black dark:text-white" />,
     color: "#000000",
   },
   {
@@ -251,7 +241,7 @@ function Page() {
                 />
               </div>
               <div className="flex flex-col gap-3 lg:items-center ml-10 md:ml-20 lg:ml-0">
-                <p className="text-center text-xl">Naresh Khatri</p>
+                <p className="text-center text-xl">{config.author}</p>
                 <div className="text-xs bg-zinc-700 w-fit px-3 py-1 rounded-full">
                   Web Developer
                 </div>
@@ -280,84 +270,35 @@ function Page() {
             </div>
           </div>
         </aside>
-        <main className="basis-3/4 w-[500px]">
+        <main className="basis-3/4 w-full">
           <div
-            className="p-10 border-[.5px] rounded-md border-zinc-600"
+            className="p-4 md:p-10 border-[.5px] rounded-2xl border-zinc-600 bg-background/5"
             style={{ backdropFilter: "blur(2px)" }}
           >
-            <h1 className="text-3xl mb-10 lg:md-20">About me</h1>
-            <p className="mb-10 text-roboto">
-              Hey there! I&apos;m Abhijit, a Comp. Sci. Engineer with 1.5 year experience in Devlopment, DevOps and 
-              Database management with hands-on experience in deploying & automating workflows, and 
-              collaborating with foreign clients. Strong analytical skills,effective communication,
-              and a team-oriented approach to driving process improvements and delivering results.
-            </p>
-            <p className="mb-10">
-              When I&apos;m not coding, you can find me [Your
-              Interests/Hobbies], exploring new technologies, or sipping coffee
-              while brainstorming my next project.
-            </p>
-            <h1 className="text-3xl mb-10 lg:md-20">Stuff I use</h1>
-            <div className="mb-5">
-              {!toolsLoaded ? (
-                <p className="h-[100px]"></p>
-              ) : (
-                <Splide
-                  options={{
-                    type: "loop",
-                    interval: 2000,
-                    autoplay: true,
-                    pagination: false,
-                    speed: 2000,
-                    perPage: 5,
-                    perMove: 1,
-                    rewind: true,
-                    easing: "cubic-bezier(0.25, 1, 0.5, 1)",
-                    arrows: false,
-                  }}
-                  aria-label="My Favorite Images"
-                >
-                  {TOOLS.reverse().map((tool) => (
-                    <SplideSlide key={tool.name}>
-                      <div
-                        key={tool.name}
-                        className="w-fit p-2 border-[.5px] border-zinc-600 rounded-md"
-                      >
-                        {tool.icon}
-                      </div>
-                    </SplideSlide>
-                  ))}
-                </Splide>
-              )}
+            <h1 className="text-3xl md:text-5xl font-black mb-10 tracking-tighter text-foreground">About me</h1>
+            <div className="space-y-6 text-zinc-400 text-lg leading-relaxed">
+              <p>
+                Hey there! I&apos;m {config.author.split(" ")[0]}, a Full Stack Developer with over 2 years of experience in PHP/Laravel, Node.js, and API development. I have a strong background in building scalable systems like School ERPs and E-commerce platforms. I love turning complex logic into simple, user-friendly experiences.
+              </p>
+              <p>
+                When I&apos;m not coding, you can find me exploring new tech stacks, contributing to open-source, or staying updated with the latest in PHP and Node.js ecosystems. I&apos;m also passionate about sharing knowledge and mentoring other developers.
+              </p>
             </div>
-            {/* <div className="">
-              <Splide
-                options={{
-                  type: "loop",
-                  interval: 2000,
-                  autoplay: true,
-                  pagination: false,
-                  speed: 3000,
-                  perPage: 5,
-                  perMove: 1,
-                  rewind: true,
-                  easing: "cubic-bezier(0.25, 1, 0.5, 1)",
-                  arrows: false,
-                }}
-                aria-label="My Favorite Images"
-              >
-                {TOOLS.map((tool) => (
-                  <SplideSlide key={tool.name}>
-                    <div
-                      key={tool.name}
-                      className="w-fit p-2 border-[.5px] border-zinc-600 rounded-md"
-                    >
-                      {tool.icon}
-                    </div>
-                  </SplideSlide>
-                ))}
-              </Splide>
-            </div> */}
+
+            <h2 className="text-3xl md:text-5xl font-black mt-20 mb-10 tracking-tighter text-foreground">Stuff I use</h2>
+            <div className="flex flex-wrap gap-4">
+              {TOOLS.map((tool) => (
+                <div
+                  key={tool.name}
+                  className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center p-3 border-[.5px] border-zinc-600 rounded-xl bg-zinc-800/50 hover:bg-zinc-700/50 transition-all hover:scale-110"
+                  title={tool.name}
+                >
+                  <div className="w-full h-full flex items-center justify-center">
+                    {tool.icon}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </main>
       </div>
